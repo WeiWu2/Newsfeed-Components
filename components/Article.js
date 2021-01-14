@@ -86,9 +86,17 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Professional Software Development in 2021',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID`,
+
+    secondParagraph: `MORE COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID`,
+
+    thirdParagraph: `EVEN MORE COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID COVID`
   }
 ];
-console.log(data[0].title);
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -129,7 +137,7 @@ function articleMaker(articleObj){
   let articleSpan = document.createElement("span");
   articleSpan.classList.add('expandButton');
   articleSpan.textContent = '+'
-  articleSpan.addEventListener('click', function(event){
+  articleSpan.addEventListener('click', function(){
   articleDiv.classList.toggle('article-open');
   });
   articleDiv.appendChild(articleTitle);
