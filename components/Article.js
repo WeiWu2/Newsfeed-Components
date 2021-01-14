@@ -88,13 +88,11 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
-
+console.log(data[0].title);
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
-
-
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -103,7 +101,6 @@ const data = [
 
     <span class="expandButton">+</span>
   </div>
-
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
@@ -115,4 +112,35 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
-let articleMaker = function(){};
+function articleMaker(articleObj){
+  let articleDiv = document.createElement('div');
+  articleDiv.classList.add('article');
+  let articleTitle = document.createElement('h2');
+  articleTitle.textContent = articleObj.title;
+  let articleDate = document.createElement("p");
+  articleDate.classList.add('date');
+  articleDate.textContent = articleObj.date;
+  let articleParaOne = document.createElement("p");
+  articleParaOne.textContent = articleObj.firstParagraph;
+  let articleParaTwo = document.createElement("p");
+  articleParaTwo.textContent = articleObj.secondParagraph;
+  let articleParaThree = document.createElement("p");
+  articleParaThree.textContent = articleObj.thirdParagraph;
+  let articleSpan = document.createElement("span");
+  articleSpan.classList.add('expandButton');
+  articleSpan.textContent = '+'
+  articleSpan.addEventListener('click', function(event){
+  articleDiv.classList.toggle('article-open');
+  });
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(articleParaOne);
+  articleDiv.appendChild(articleParaTwo);
+  articleDiv.appendChild(articleParaThree);
+  articleDiv.appendChild(articleSpan);
+  return articleDiv;
+}
+data.forEach((articleObj) => {
+  document.querySelector('.articles').appendChild(articleMaker(articleObj));
+
+});
